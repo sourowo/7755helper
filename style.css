@@ -1,111 +1,97 @@
-/* 基本樣式 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
+document.addEventListener("DOMContentLoaded", function () {
+    loadInputValue(); // 載入輸入欄內容
+    loadCustomOptions(); // 載入自訂選項
+});
+
+// 設定輸入框的值
+function setInputValue(option) {
+    var inputField = document.getElementById("input-field");
+    inputField.value += option + "\n";
+    saveInputValue();
 }
 
-h1 {
-    margin-bottom: 20px;
+// 清除輸入框內容
+function clearInputValue() {
+    document.getElementById("input-field").value = "";
+    saveInputValue();
 }
 
-/* 選項區域 */
-#user-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+// 監聽輸入框變化，並存入 localStorage
+document.getElementById("input-field").addEventListener("input", saveInputValue);
+
+function saveInputValue() {
+    var inputValue = document.getElementById("input-field").value;
+    localStorage.setItem("savedInput", inputValue);
 }
 
-/* 選項按鈕 */
-.option-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
+function loadInputValue() {
+    var savedInput = localStorage.getItem("savedInput");
+    if (savedInput) {
+        document.getElementById("input-field").value = savedInput;
+    }
 }
 
-.option-btn, .delete-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+// 複製輸入內容
+function copyInputValue() {
+    var inputField = document.getElementById("input-field");
+    inputField.select();
+    document.execCommand("copy");
+
+    var copyMessage = document.getElementById("copy-message");
+    copyMessage.style.display = "block";
+
+    setTimeout(() => copyMessage.style.display = "none", 3000);
 }
 
-.option-btn:hover {
-    background-color: #45a049;
+// 儲存自定義選項到 localStorage
+function saveCustomOptions(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    
+    if (!customOptions.includes(optionText)) {
+        customOptions.push(optionText);
+        localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    }
 }
 
-/* 刪除按鈕 */
-.delete-btn {
-    background-color: #FF4D4D;
+// 從 localStorage 加載自定義選項
+function loadCustomOptions() {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+
+    customOptions.forEach(function (option) {
+        createOptionButton(option);
+    });
 }
 
-.delete-btn:hover {
-    background-color: #e60000;
+// 創建選項按鈕
+function createOptionButton(optionText) {
+    var optionContainer = document.createElement("div");
+    optionContainer.className = "option-container";
+
+    var newButton = document.createElement("button");
+    newButton.className = "option-btn";
+    newButton.textContent = optionText;
+    newButton.onclick = function () {
+        setInputValue(optionText);
+    };
+
+    var deleteButton = document.createElement("button");
+    deleteButton.className = "delete-btn";
+    deleteButton.textContent = "❌";
+    deleteButton.onclick = function () {
+        optionContainer.remove();
+        deleteCustomOption(optionText);
+    };
+
+    optionContainer.appendChild(newButton);
+    optionContainer.appendChild(deleteButton);
+
+    document.getElementById("user-options").appendChild(optionContainer);
 }
 
-/* 新增選項區域 */
-.add-custom-option-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
+// 刪除自定義選項
+function deleteCustomOption(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    var newOptions = customOptions.filter(option => option !== optionText);
 
-.add-custom-option-container input {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.add-custom-option-container button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-custom-option-container button:hover {
-    background-color: #0056b3;
-}
-
-/* 輸入框 */
-textarea {
-    margin-top: 10px;
-    width: 80%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: vertical;
-}
-
-/* 按鈕區 */
-.button-container {
-    margin-top: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #218838;
+    localStorage.setItem("customOptions", JSON.stringify(newOptions));
 }
