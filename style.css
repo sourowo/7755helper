@@ -10,50 +10,81 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* 選項區域 */
-#user-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-/* 選項按鈕 */
-.accordion-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px 0;
+/* 摺疊區塊 */
+details {
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 10px;
 }
 
-.accordion-btn:hover {
-    background-color: #45a049;
-}
-
-/* 複選選項 */
-.option-btn {
+summary {
+    font-weight: bold;
+    cursor: pointer;
     background-color: #007BFF;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 5px 10px;
     border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
 }
 
-.option-btn:hover {
+summary:hover {
     background-color: #0056b3;
 }
 
-/* 自定義選項 */
+.option-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.option-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.option-btn:hover {
+    background-color: #45a049;
+}
+
+/* 自定義選項區域 */
 .add-custom-option-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
     margin-top: 20px;
 }
 
+.add-custom-option-container input {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-custom-option-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-custom-option-container button:hover {
+    background-color: #0056b3;
+}
+
+/* 輸入框 */
 textarea {
     margin-top: 10px;
     width: 80%;
@@ -63,6 +94,7 @@ textarea {
     resize: vertical;
 }
 
+/* 按鈕區 */
 .button-container {
     margin-top: 10px;
 }
@@ -80,17 +112,4 @@ button {
 
 button:hover {
     background-color: #218838;
-}
-
-/* Accordion 顯示隱藏面板 */
-.panel {
-    display: none;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-.accordion-btn.active + .panel {
-    display: block;
 }
