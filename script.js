@@ -1,3 +1,30 @@
+// 設定輸入框的值
+function setInputValue(option) {
+    var inputField = document.getElementById("input-field");
+    inputField.value += option + "\n";  // 將選項文字加入到輸入框並換行
+    saveInputValue();  // 保存輸入框內容
+}
+
+// 儲存輸入框內容到 localStorage
+function saveInputValue() {
+    var inputValue = document.getElementById("input-field").value;
+    localStorage.setItem("savedInput", inputValue);
+}
+
+// 載入頁面時載入已儲存的輸入框內容
+document.addEventListener("DOMContentLoaded", function () {
+    loadInputValue();  // 載入儲存的輸入框內容
+    loadCustomOptions();  // 載入自訂選項
+});
+
+// 從 localStorage 讀取儲存的輸入框內容
+function loadInputValue() {
+    var savedInput = localStorage.getItem("savedInput");
+    if (savedInput) {
+        document.getElementById("input-field").value = savedInput;
+    }
+}
+
 // 新增自定義選項並顯示於自定義分類
 function addCustomOption() {
     var customOptionText = document.getElementById("custom-option").value.trim();
@@ -49,14 +76,23 @@ function createCustomOptionButton(optionText) {
     customOptionsContainer.appendChild(newButton);
 }
 
-// 設定輸入框的值
-function setInputValue(option) {
-    var inputField = document.getElementById("input-field");
-    inputField.value += option + "\n";  // 將選項加入輸入框並換行
-    saveInputValue();  // 保存輸入框內容
-}
-
-// 載入頁面時加載自定義選項
+// 載入頁面時加載所有選項並顯示在面板中
 document.addEventListener("DOMContentLoaded", function () {
-    loadCustomOptions(); // 載入自訂選項
+    setupAccordions(); // 初始化 Accordion 展開/折疊功能
 });
+
+// Accordion 功能：點擊按鈕展開/折疊面板
+function setupAccordions() {
+    var acc = document.getElementsByClassName("accordion-btn");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+}
