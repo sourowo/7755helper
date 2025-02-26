@@ -44,7 +44,7 @@ h1 {
     justify-content: flex-start;
 }
 
-/* 選項按鈕 */
+/* 修改選項按鈕顏色：用灰色系取代藍色、綠色、橙色 */
 .option-btn {
     background-color: #a6a6a6; /* 淺灰色 */
     color: white;
