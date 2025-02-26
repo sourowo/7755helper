@@ -9,7 +9,7 @@ body {
 
 /* 居中容器，設置最大寬度 */
 .container {
-    max-width: 1200px;
+    max-width: 1200px; /* 設置最大寬度 */
     width: 100%;
     margin: 0 auto;
 }
@@ -112,40 +112,41 @@ button:hover {
     color: green;
 }
 
-/* 改變分類內按鈕顏色 */
+/* 響應式設計 - 手機端 */
+@media (max-width: 768px) {
+    .accordion-btn {
+        font-size: 14px; /* 減小字體大小 */
+    }
+
+    .add-custom-option-container input {
+        width: 150px; /* 輸入框在手機端更小 */
+    }
+
+    .add-custom-option-container button {
+        font-size: 14px; /* 按鈕字體大小調整 */
+    }
+
+    textarea {
+        max-width: 100%; /* 在手機上，文本區塊的寬度為100% */
+    }
+
+    .button-container button {
+        font-size: 14px; /* 按鈕字體大小調整 */
+    }
+}
+
+/* 更新分類按鈕顏色 */
 .category-button {
-    background-color: #FF5733; /* 新的顏色 */
+    background-color: #6c757d; /* 改成灰色 */
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .category-button:hover {
-    background-color: #D43F00; /* 滑鼠懸停時顏色 */
-}
-
-/* 響應式設計 - 手機端 */
-@media (max-width: 768px) {
-    .accordion-btn {
-        font-size: 14px;
-    }
-
-    .add-custom-option-container input {
-        width: 150px;
-    }
-
-    .add-custom-option-container button {
-        font-size: 14px;
-    }
-
-    textarea {
-        max-width: 100%;
-    }
-
-    .button-container button {
-        font-size: 14px;
-    }
+    background-color: #5a6268; /* 鼠標懸停時改成深灰 */
 }
