@@ -16,7 +16,7 @@ h1 {
 /* 主要選項容器 */
 #user-options {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* 選項按鈕上下排列 */
     align-items: flex-start; /* 讓選項靠左對齊 */
     gap: 10px;
     margin-bottom: 20px;
@@ -25,7 +25,7 @@ h1 {
 /* 每個選項的容器 */
 .option-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* 按鈕上下排列 */
     align-items: flex-start;
     gap: 10px;
 }
