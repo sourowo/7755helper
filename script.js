@@ -50,8 +50,10 @@ function createCustomOptionButton(optionText) {
 // 儲存自定義選項至localStorage
 function saveCustomOption(optionText) {
     let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-    customOptions.push(optionText);
-    localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    if (!customOptions.includes(optionText)) {
+        customOptions.push(optionText);
+        localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    }
 }
 
 // 刪除自定義選項
