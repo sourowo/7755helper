@@ -38,7 +38,4 @@ function copyInputValue() {
     copyMessage.style.display = 'block';
 
     // 3秒後隱藏已複製訊息
-    setTimeout(function() {
-        copyMessage.style.display = 'none';
-    }, 3000);
-}
+    setTime
