@@ -34,7 +34,7 @@ summary:hover {
 }
 
 /* 展開的內容 */
-option-container {
+.option-container {
     padding: 10px;
 }
 
