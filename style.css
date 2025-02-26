@@ -1,133 +1,129 @@
-/* 整體樣式 */
+/* 基本樣式設置 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
 h1 {
     text-align: center;
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-/* 主要選項容器 */
 #user-options {
     display: flex;
-    flex-direction: column; /* 選項按鈕上下排列 */
-    align-items: flex-start; /* 讓選項靠左對齊 */
+    flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 10px;
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
-/* 每個選項的容器 */
 .option-container {
     display: flex;
-    flex-direction: column; /* 按鈕上下排列 */
-    align-items: flex-start;
+    flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 按鈕樣式 */
 .option-btn {
-    background-color: #3498db;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
     padding: 10px 20px;
     font-size: 14px;
     cursor: pointer;
-    text-align: left;
-    max-width: 300px;
-    white-space: normal; /* 讓文字可以換行 */
-    word-wrap: break-word; /* 長文字會自動換行 */
-    line-height: 1.5;
+    border-radius: 5px;
+    margin: 5px;
 }
 
-/* 按鈕懸停效果 */
 .option-btn:hover {
-    background-color: #2980b9;
+    background-color: #45a049;
 }
 
-/* 自定義選項輸入框 */
-#custom-option {
-    width: 100%;
-    max-width: 500px;
-    padding: 8px;
+.add-custom-option-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.add-custom-option-container input {
+    padding: 10px;
     font-size: 16px;
-    margin-bottom: 10px;
+    width: 200px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-/* 自定義選項按鈕 */
-button {
-    background-color: #2ecc71;
+.add-custom-option-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
     color: white;
     border: none;
-    padding: 8px 15px;
+    font-size: 16px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-custom-option-container button:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
-}
-
-/* 輸入框 */
-#input-field {
-    width: 100%;
-    max-width: 600px;
-    height: 200px;
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: none;
-    background-color: #fff;
 }
 
-/* 複製訊息 */
+button:hover {
+    background-color: #218838;
+}
+
+/* 設置複製訊息 */
 #copy-message {
     text-align: center;
     margin-top: 10px;
     font-size: 16px;
-    color: green;
-    display: none;
+    font-weight: bold;
 }
 
-/* 增加一些 margin 讓整體結構更有間距 */
-input, button {
-    margin-bottom: 10px;
-}
-
-/* 響應式設計 - 小螢幕（手機）時調整選項排列 */
-@media (max-width: 600px) {
-    #user-options {
-        flex-direction: column; /* 垂直排列選項按鈕 */
-        gap: 8px; /* 適當縮小按鈕間距 */
-    }
-
-    .option-btn {
-        width: 100%; /* 按鈕寬度設為100% */
-        max-width: none; /* 取消最大寬度限制 */
-    }
-
-    #custom-option, #input-field {
-        width: 100%; /* 輸入框寬度設定為100% */
-        max-width: none; /* 取消最大寬度限制 */
-    }
-
-    button {
-        width: 100%; /* 按鈕寬度設為100% */
-        max-width: none; /* 取消最大寬度限制 */
-    }
-}
-
-/* 保證新增自定義選項和輸入框不會並排 */
-.add-custom-option-container {
+/* 新增自定義選項按鈕與刪除按鈕並排 */
+.option-container div {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 10px;
+}
+
+.delete-btn {
+    background-color: #FF4D4D;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
 }
