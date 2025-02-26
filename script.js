@@ -2,7 +2,12 @@
 document.querySelectorAll('.accordion-btn').forEach(button => {
     button.addEventListener('click', () => {
         const content = button.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        // 這裡確保摺疊區塊的顯示/隱藏能夠正確切換
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
     });
 });
 
