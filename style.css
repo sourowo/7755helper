@@ -48,11 +48,11 @@ h1 {
 
 /* 刪除按鈕（❌）美化 */
 .delete-btn {
-    background: none; /* 移除背景 */
-    border: none; /* 移除邊框 */
-    color: #dc3545; /* 設定紅色文字 */
+    background-color: transparent;
+    color: #dc3545; /* 紅色 */
+    border: none;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     padding: 5px;
     border-radius: 50%;
@@ -62,7 +62,6 @@ h1 {
     justify-content: center;
     width: 24px;
     height: 24px;
-    line-height: 1;
 }
 
 /* 滑鼠移上去時，變成紅色圓形背景，❌變白色 */
