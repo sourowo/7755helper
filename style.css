@@ -10,24 +10,36 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* 選項區域 */
-#user-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+/* Accordion 的樣式 */
+details {
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* 選項按鈕 */
-.option-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+summary {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    margin: 0;
+}
+
+summary:hover {
+    background-color: #0056b3;
+}
+
+/* 展開的內容 */
+option-container {
     padding: 10px;
 }
 
-.option-btn, .delete-btn {
+/* 選項按鈕 */
+.option-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -35,22 +47,14 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    margin: 5px;
 }
 
 .option-btn:hover {
     background-color: #45a049;
 }
 
-/* 刪除按鈕 */
-.delete-btn {
-    background-color: #FF4D4D;
-}
-
-.delete-btn:hover {
-    background-color: #e60000;
-}
-
-/* 新增選項區域 */
+/* 自定義選項輸入 */
 .add-custom-option-container {
     display: flex;
     gap: 10px;
