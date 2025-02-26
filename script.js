@@ -18,9 +18,9 @@ function addCustomOption() {
             setInputValue(customOption);
         };
 
-        // 將新按鈕添加到選項列表
+        // 將新按鈕插入到現有選項的最前面
         var userOptionsDiv = document.getElementById('user-options');
-        userOptionsDiv.appendChild(newButton);
+        userOptionsDiv.insertBefore(newButton, userOptionsDiv.firstChild);
 
         // 清空自定義選項的輸入框
         document.getElementById('custom-option').value = '';
@@ -38,4 +38,7 @@ function copyInputValue() {
     copyMessage.style.display = 'block';
 
     // 3秒後隱藏已複製訊息
-    setTime
+    setTimeout(function() {
+        copyMessage.style.display = 'none';
+    }, 3000);
+}
