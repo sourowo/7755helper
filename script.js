@@ -110,3 +110,4 @@ window.onload = function() {
     loadCustomOptions();
     loadInputValue();  // 頁面載入時載入輸入框的內容
 };
+
