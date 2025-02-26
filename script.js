@@ -43,8 +43,39 @@ function createOptionButton(optionText) {
         setInputValue(optionText);
     };
 
+    var removeButton = document.createElement("button");
+    removeButton.className = "remove-btn";
+    removeButton.textContent = "X";
+    removeButton.onclick = function () {
+        removeOption(optionText, optionContainer);
+    };
+
     optionContainer.appendChild(newButton);
+    optionContainer.appendChild(removeButton);
     document.getElementById("custom-options").appendChild(optionContainer);
+}
+
+// 刪除選項
+function removeOption(optionText, optionContainer) {
+    optionContainer.remove(); // 從畫面上移除
+    deleteCustomOption(optionText); // 從 localStorage 移除
+}
+
+// 儲存自定義選項到 localStorage
+function saveCustomOption(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    
+    if (!customOptions.includes(optionText)) {
+        customOptions.push(optionText);
+        localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    }
+}
+
+// 刪除自定義選項從 localStorage
+function deleteCustomOption(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions = customOptions.filter(option => option !== optionText);
+    localStorage.setItem("customOptions", JSON.stringify(customOptions));
 }
 
 // 新增自定義選項
@@ -56,16 +87,6 @@ function addCustomOption() {
         createOptionButton(optionText);
         saveCustomOption(optionText);
         customOptionInput.value = ""; // 清空輸入框
-    }
-}
-
-// 儲存自定義選項到 localStorage
-function saveCustomOption(optionText) {
-    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-    
-    if (!customOptions.includes(optionText)) {
-        customOptions.push(optionText);
-        localStorage.setItem("customOptions", JSON.stringify(customOptions));
     }
 }
 
