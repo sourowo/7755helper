@@ -4,7 +4,7 @@ body {
     margin: 20px;
     padding: 20px;
     background-color: #f8f8f8;
-    text-align: center;
+    text-align: left; /* 將內容對齊到左邊 */
 }
 
 /* 標題樣式 */
@@ -26,7 +26,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: center;
+    justify-content: flex-start; /* 讓按鈕排列在左邊 */
 }
 
 /* 選項按鈕 */
@@ -35,10 +35,9 @@ h1 {
     color: white;
     border: none;
     cursor: pointer;
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 5px 10px;  /* 縮小按鈕大小 */
+    font-size: 14px;  /* 縮小字體 */
     border-radius: 5px;
-    flex-grow: 1;
     transition: background-color 0.2s;
 }
 
