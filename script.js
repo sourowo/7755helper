@@ -15,6 +15,7 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
 function setInputValue(option) {
     var inputField = document.getElementById("input-field");
     inputField.value += option + "\n";
+    saveInputValue();  // 每次更新輸入框內容時儲存
 }
 
 // 新增自定義選項
@@ -78,4 +79,34 @@ function copyInputValue() {
 // 清除輸入框內容
 function clearInputValue() {
     document.getElementById("input-field").value = '';
+    saveInputValue();  // 清除時也保存空的內容
 }
+
+// 儲存輸入框的內容
+function saveInputValue() {
+    const inputField = document.getElementById("input-field");
+    localStorage.setItem("inputText", inputField.value);
+}
+
+// 載入輸入框的內容
+function loadInputValue() {
+    const inputField = document.getElementById("input-field");
+    const savedText = localStorage.getItem("inputText");
+    if (savedText) {
+        inputField.value = savedText;
+    }
+}
+
+// 載入自定義選項
+function loadCustomOptions() {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.forEach(optionText => {
+        createCustomOptionButton(optionText);
+    });
+}
+
+// 初始化
+window.onload = function() {
+    loadCustomOptions();
+    loadInputValue();  // 頁面載入時載入輸入框的內容
+};
