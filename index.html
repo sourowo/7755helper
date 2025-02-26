@@ -11,8 +11,40 @@
 
     <!-- 既定選項區域 -->
     <div id="user-options">
-        <div class="option-container" id="default-options">
-            <!-- 既定選項會在這裡顯示 -->
+        <div class="accordion">
+            <button class="accordion-button">📌 更新後的分類</button>
+            <div class="panel">
+                <div class="option-container" id="default-options">
+                    <!-- 既定選項會在這裡顯示 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">📝 基本設定</button>
+            <div class="panel">
+                <div class="option-container" id="basic-settings-options">
+                    <!-- 基本設定選項會在這裡顯示 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">🎭 角色行為</button>
+            <div class="panel">
+                <div class="option-container" id="character-behavior-options">
+                    <!-- 角色行為選項會在這裡顯示 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">🚗 開車</button>
+            <div class="panel">
+                <div class="option-container" id="driving-options">
+                    <!-- 開車選項會在這裡顯示 -->
+                </div>
+            </div>
         </div>
     </div>
 
@@ -21,6 +53,9 @@
         <div class="add-custom-option-container">
             <input type="text" id="custom-option" placeholder="輸入自定義選項">
             <button onclick="addCustomOption()">新增自定義選項</button>
+        </div>
+        <div id="custom-options-list">
+            <!-- 自定義選項會在這裡顯示 -->
         </div>
     </div>
 
