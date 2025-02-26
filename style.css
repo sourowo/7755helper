@@ -4,11 +4,12 @@ body {
     margin: 20px;
     padding: 20px;
     background-color: #f8f8f8;
+    text-align: center;
 }
 
 /* 標題樣式 */
 h1 {
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* 選項按鈕區域 */
@@ -17,7 +18,7 @@ h1 {
     flex-direction: column;
     gap: 10px;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 /* 選項按鈕與刪除按鈕的容器 */
@@ -25,6 +26,7 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: center;
 }
 
 /* 選項按鈕 */
@@ -37,30 +39,34 @@ h1 {
     font-size: 16px;
     border-radius: 5px;
     flex-grow: 1;
+    transition: background-color 0.2s;
 }
 
 .option-btn:hover {
     background-color: #0056b3;
 }
 
-/* 刪除按鈕 */
+/* 刪除按鈕（❌） */
 .delete-btn {
-    background-color: red;
-    color: white;
+    background-color: transparent;
+    color: #ff4d4d; /* 紅色 */
     border: none;
     cursor: pointer;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s;
 }
 
 .delete-btn:hover {
-    background-color: darkred;
+    color: white;
+    background-color: #ff4d4d;
 }
 
 /* 自定義選項輸入區 */
 #custom-option {
-    width: calc(100% - 22px);
+    width: calc(100% - 40px);
     max-width: 300px;
     padding: 10px;
     margin-top: 10px;
@@ -73,7 +79,7 @@ h1 {
 /* 新增選項按鈕 */
 button {
     display: block;
-    width: calc(100% - 22px);
+    width: calc(100% - 40px);
     max-width: 300px;
     margin: 5px auto;
     padding: 10px;
@@ -81,6 +87,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 /* 新增按鈕專屬樣式 */
@@ -95,7 +102,7 @@ button:nth-of-type(2):hover {
 
 /* 輸入框 */
 #input-field {
-    width: calc(100% - 22px);
+    width: calc(100% - 40px);
     max-width: 500px;
     height: 150px;
     padding: 10px;
@@ -104,6 +111,8 @@ button:nth-of-type(2):hover {
     border-radius: 5px;
     display: block;
     margin: 10px auto;
+    font-size: 16px;
+    resize: none;
 }
 
 /* 複製內容按鈕 */
