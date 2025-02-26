@@ -1,64 +1,40 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卿卿我我小幫手</title>
+    <title>選項管理</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>卿卿我我小幫手</h1>
+    <h1>選項管理</h1>
+    <div class="accordion">
+        <button class="accordion-button">📝 基本設定</button>
+        <div class="panel" id="基本設定-options"></div>
 
-    <!-- 既定選項區域 -->
-    <div id="user-options">
-        <div class="accordion">
-            <button class="accordion-button">📝 基本設定</button>
-            <div class="panel">
-                <div class="option-container" id="basic-settings-options">
-                    <!-- 既定選項按鈕 -->
-                </div>
-            </div>
-        </div>
+        <button class="accordion-button">🎭 角色行為</button>
+        <div class="panel" id="角色行為-options"></div>
 
-        <div class="accordion">
-            <button class="accordion-button">🎭 角色行為</button>
-            <div class="panel">
-                <div class="option-container" id="character-behavior-options">
-                    <!-- 既定選項按鈕 -->
-                </div>
-            </div>
-        </div>
+        <button class="accordion-button">🚗 開車</button>
+        <div class="panel" id="開車-options"></div>
 
-        <div class="accordion">
-            <button class="accordion-button">🚗 開車</button>
-            <div class="panel">
-                <div class="option-container" id="driving-options">
-                    <!-- 既定選項按鈕 -->
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <button class="accordion-button">📄 自定義選項</button>
-            <div class="panel">
-                <div class="option-container" id="custom-options">
-                    <!-- 自定義選項顯示區域 -->
-                </div>
-                <input type="text" id="new-custom-option" placeholder="輸入自定義選項">
-                <button onclick="addCustomOption()">新增自定義選項</button>
-            </div>
+        <button class="accordion-button">📄 自定義選項</button>
+        <div class="panel" id="custom-options">
+            <input type="text" id="new-custom-option" placeholder="新增自定義選項">
+            <button onclick="addCustomOption()">新增</button>
         </div>
     </div>
 
-    <!-- 輸入框 -->
-    <textarea id="input-field" rows="10" cols="50" style="resize: none;"></textarea><br>
+    <div class="input-section">
+        <textarea id="input-field" placeholder="點擊選項來填充內容"></textarea>
+    </div>
 
     <div class="button-container">
         <button onclick="copyInputValue()">複製內容</button>
-        <button onclick="clearInputValue()">清除</button>
+        <button onclick="clearInputValue()">清除內容</button>
     </div>
 
-    <div id="copy-message" style="display: none; color: green;">已複製！</div>
+    <div id="copy-message" style="display:none;">內容已複製！</div>
 
     <script src="script.js"></script>
 </body>
