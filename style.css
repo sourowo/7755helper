@@ -1,20 +1,42 @@
-/* 自定義選項 */
-#custom-options-container {
-    display: flex;
-    flex-direction: column; /* 預設為縱向排列 */
-    gap: 10px; /* 選項之間的間隔 */
-    margin-top: 20px;
+/* 基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
 }
 
-/* 每個自定義選項按鈕的容器 */
-.custom-option-container {
-    display: flex;
-    align-items: center; /* 讓選項與刪除按鈕垂直居中對齊 */
-    justify-content: center; /* 讓內容居中對齊 */
-    gap: 10px; /* 選項和X按鈕之間的間隔 */
+h1 {
+    margin-bottom: 20px;
 }
 
-/* 自定義選項按鈕 */
+/* 摺疊區塊 */
+.accordion-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.accordion-btn:hover {
+    background-color: #45a049;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 選項按鈕 */
 .option-btn {
     background-color: #4CAF50;
     color: white;
@@ -25,23 +47,14 @@
     border-radius: 5px;
 }
 
-/* 刪除按鈕 */
-.delete-btn {
-    background-color: #FF6347; /* 番茄紅背景 */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+/* 自定義選項 */
+#custom-options-container {
+    display: flex;
+    flex-direction: column; /* 預設為縱向排列 */
+    gap: 10px; /* 選項之間的間隔 */
+    margin-top: 20px;
 }
 
-/* 當滑鼠懸停時，刪除按鈕變色 */
-.delete-btn:hover {
-    background-color: #e04e3a;
-}
-
-/* 選項按鈕的懸停效果 */
-.option-btn:hover {
-    background-color: #45a049;
-}
+.custom-option-container {
+    display: flex;
+    align-items: center; /* 讓選項與刪除按鈕垂直居中對
