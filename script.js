@@ -1,3 +1,9 @@
+// 載入已儲存的自定義選項和輸入框內容
+window.onload = function() {
+    loadCustomOptions();
+    loadInputValue();
+};
+
 // 設定輸入框的值
 function setInputValue(option) {
     var inputField = document.getElementById("input-field");
@@ -40,4 +46,57 @@ function copyInputValue() {
 
 // 儲存自定義選項到 localStorage
 function saveCustomOptions(optionText) {
-    var
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.push(optionText);
+    localStorage.setItem("customOptions", JSON.stringify(customOptions));
+}
+
+// 加載儲存的自定義選項
+function loadCustomOptions() {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    const customOptionsContainer = document.getElementById("custom-options");
+    customOptionsContainer.innerHTML = ""; // 清空自定義選項區域
+
+    customOptions.forEach(function(option, index) {
+        const optionDiv = document.createElement("div");
+        optionDiv.classList.add("custom-option");
+        
+        const optionButton = document.createElement("button");
+        optionButton.textContent = `*${option}*`;
+        optionButton.classList.add("option-btn");
+        optionButton.onclick = function() {
+            setInputValue(`*${option}*`);
+        };
+        
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "X";
+        removeButton.classList.add("remove-btn");
+        removeButton.onclick = function() {
+            removeCustomOption(index);
+        };
+
+        optionDiv.appendChild(optionButton);
+        optionDiv.appendChild(removeButton);
+        customOptionsContainer.appendChild(optionDiv);
+    });
+}
+
+// 新增自定義選項
+function addCustomOption() {
+    const customOptionInput = document.getElementById("custom-option");
+    const optionText = customOptionInput.value.trim();
+
+    if (optionText !== "") {
+        saveCustomOptions(optionText);
+        loadCustomOptions();  // 重新加載自定義選項顯示
+        customOptionInput.value = ""; // 清空輸入框
+    }
+}
+
+// 移除自定義選項
+function removeCustomOption(index) {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.splice(index, 1);  // 移除指定的選項
+    localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    loadCustomOptions();  // 重新加載自定義選項顯示
+}
