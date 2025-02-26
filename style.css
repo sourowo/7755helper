@@ -1,136 +1,47 @@
-/* 基本樣式 */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 20px;
-    margin: 0;
-}
-
-/* 居中容器，設置最大寬度 */
-.container {
-    max-width: 1200px; /* 設置最大寬度 */
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* 標題 */
-h1 {
-    margin-bottom: 20px;
-}
-
-/* 摺疊區塊 */
-.accordion-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.accordion-btn:hover {
-    background-color: #45a049;
-}
-
-.accordion-content {
-    display: none;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
 /* 自定義選項 */
-.add-custom-option-container {
+#custom-options-container {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+    flex-direction: column; /* 預設為縱向排列 */
+    gap: 10px; /* 選項之間的間隔 */
     margin-top: 20px;
 }
 
-.add-custom-option-container input {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* 每個自定義選項按鈕的容器 */
+.custom-option-container {
+    display: flex;
+    align-items: center; /* 讓選項與刪除按鈕垂直居中對齊 */
+    justify-content: center; /* 讓內容居中對齊 */
+    gap: 10px; /* 選項和X按鈕之間的間隔 */
 }
 
-.add-custom-option-container button {
-    padding: 10px 20px;
-    background-color: #007BFF;
+/* 自定義選項按鈕 */
+.option-btn {
+    background-color: #4CAF50;
     color: white;
     border: none;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
     cursor: pointer;
-}
-
-.add-custom-option-container button:hover {
-    background-color: #0056b3;
-}
-
-/* 輸入框 */
-textarea {
-    margin-top: 10px;
-    width: 100%; /* 設置寬度為100% */
-    max-width: 600px; /* 設置最大寬度 */
-    padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    resize: vertical;
 }
 
-/* 按鈕區 */
-.button-container {
-    margin-top: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #28a745;
+/* 刪除按鈕 */
+.delete-btn {
+    background-color: #FF6347; /* 番茄紅背景 */
     color: white;
     border: none;
-    cursor: pointer;
+    padding: 5px 10px;
     font-size: 16px;
-    margin: 5px;
+    cursor: pointer;
     border-radius: 5px;
 }
 
-button:hover {
-    background-color: #218838;
+/* 當滑鼠懸停時，刪除按鈕變色 */
+.delete-btn:hover {
+    background-color: #e04e3a;
 }
 
-/* 複製提示 */
-#copy-message {
-    display: none;
-    color: green;
-}
-
-/* 響應式設計 - 手機端 */
-@media (max-width: 768px) {
-    .accordion-btn {
-        font-size: 14px; /* 減小字體大小 */
-    }
-
-    .add-custom-option-container input {
-        width: 150px; /* 輸入框在手機端更小 */
-    }
-
-    .add-custom-option-container button {
-        font-size: 14px; /* 按鈕字體大小調整 */
-    }
-
-    textarea {
-        max-width: 100%; /* 在手機上，文本區塊的寬度為100% */
-    }
-
-    .button-container button {
-        font-size: 14px; /* 按鈕字體大小調整 */
-    }
+/* 選項按鈕的懸停效果 */
+.option-btn:hover {
+    background-color: #45a049;
 }
