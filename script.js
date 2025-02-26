@@ -1,21 +1,15 @@
-// 等待頁面加載完成後，恢復記憶的選項和輸入內容
-window.onload = () => {
-    // 恢復自定義選項
-    const customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-    customOptions.forEach(option => createCustomOptionButton(option));
-
-    // 恢復使用者輸入的內容
-    const savedInputValue = localStorage.getItem("inputFieldValue");
-    if (savedInputValue) {
-        document.getElementById("input-field").value = savedInputValue;
-    }
-};
+// 摺疊區塊功能
+document.querySelectorAll('.accordion-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
 
 // 設定輸入框的值
 function setInputValue(option) {
     var inputField = document.getElementById("input-field");
     inputField.value += option + "\n";
-    saveInputValue(inputField.value);
 }
 
 // 新增自定義選項
@@ -79,10 +73,4 @@ function copyInputValue() {
 // 清除輸入框內容
 function clearInputValue() {
     document.getElementById("input-field").value = '';
-    saveInputValue('');
-}
-
-// 保存輸入框的內容到localStorage
-function saveInputValue(value) {
-    localStorage.setItem("inputFieldValue", value);
 }
