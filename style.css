@@ -4,19 +4,26 @@ body {
     margin: 0;
     padding: 20px;
     background-color: #f8f8f8;
+    width: 100%; /* 確保寬度填滿螢幕 */
     text-align: left; /* 讓整個頁面內容靠左 */
+    box-sizing: border-box;
+}
+
+/* 清除所有元素的預設邊距和內距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 確保body的內容完全填滿 */
+html, body {
+    height: 100%;
 }
 
 /* 標題樣式 */
 h1 {
     margin-bottom: 20px;
-}
-
-/* 讓所有內容不置中 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 /* 選項按鈕區域 */
