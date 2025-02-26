@@ -1,7 +1,8 @@
 /* 基本樣式 */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #eef2f3; /* 淡灰藍背景 */
+    color: #333; /* 字體顏色 */
     text-align: center;
     padding: 20px;
     margin: 0;
@@ -17,99 +18,102 @@ body {
 /* 標題 */
 h1 {
     margin-bottom: 20px;
+    color: #3a3f44; /* 深灰色標題 */
 }
 
 /* 摺疊區塊 */
 .accordion-btn {
-    background-color: #6c757d; /* 改為灰色 */
+    background-color: #FF8C00; /* 橙色 */
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
     width: 100%;
     text-align: left;
-    border-radius: 5px;
+    border-radius: 8px;
     margin-top: 10px;
 }
 
 .accordion-btn:hover {
-    background-color: #5a6268; /* 深灰色 */
+    background-color: #e67e00; /* 深橙色 */
 }
 
 .accordion-content {
     display: none;
     padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
+    background-color: #f9f9f9; /* 淺灰色背景 */
+    border-radius: 8px;
     margin-top: 10px;
 }
 
 /* 自定義選項 */
 .add-custom-option-container {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
     margin-top: 20px;
 }
 
 .add-custom-option-container input {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    width: 220px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .add-custom-option-container button {
-    padding: 10px 20px;
-    background-color: #007BFF; /* 藍色 */
+    padding: 12px 24px;
+    background-color: #3498db; /* 藍色 */
     color: white;
     border: none;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 .add-custom-option-container button:hover {
-    background-color: #0056b3;
+    background-color: #2980b9; /* 深藍色 */
 }
 
 /* 輸入框 */
 textarea {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
-    max-width: 600px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    max-width: 650px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
     resize: vertical;
 }
 
 /* 按鈕區 */
 .button-container {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #6c757d; /* 改為灰色 */
+    padding: 12px 24px;
+    background-color: #2ecc71; /* 蘋果綠 */
     color: white;
     border: none;
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 button:hover {
-    background-color: #5a6268;
+    background-color: #27ae60; /* 深綠色 */
 }
 
 /* 複製提示 */
 #copy-message {
     display: none;
-    color: green;
+    color: #2ecc71; /* 蘋果綠 */
 }
 
 /* 響應式設計 - 手機端 */
@@ -119,7 +123,7 @@ button:hover {
     }
 
     .add-custom-option-container input {
-        width: 150px;
+        width: 180px;
     }
 
     .add-custom-option-container button {
