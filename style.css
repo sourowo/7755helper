@@ -1,102 +1,77 @@
-/* 基本樣式 */
+/* 頁面背景與字型設置 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    text-align: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
     padding: 20px;
 }
 
+/* 標題 */
 h1 {
+    font-size: 2rem;
+    color: #4CAF50;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-/* 摺疊區塊 */
+/* 摺疊區塊（Accordion） */
 details {
-    margin: 10px 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    margin: 15px 0;
+    background-color: #ffffff;
     border-radius: 5px;
-    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* 摺疊區塊標題 */
 summary {
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #007BFF;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #007bff;
     color: white;
-    padding: 5px 10px;
+    cursor: pointer;
     border-radius: 5px;
 }
 
-summary:hover {
-    background-color: #0056b3;
-}
-
+/* 選項按鈕樣式 */
 .option-container {
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
-    padding: 10px;
+    justify-content: center;
 }
 
 .option-btn {
     background-color: #4CAF50;
     color: white;
-    border: none;
     padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease;
 }
 
 .option-btn:hover {
     background-color: #45a049;
 }
 
-/* 自定義選項區域 */
-.add-custom-option-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.add-custom-option-container input {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.add-custom-option-container button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-custom-option-container button:hover {
-    background-color: #0056b3;
-}
-
 /* 輸入框 */
 textarea {
-    margin-top: 10px;
     width: 80%;
+    height: 200px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     resize: vertical;
+    font-size: 14px;
 }
 
-/* 按鈕區 */
+/* 複製與清除按鈕區域 */
 .button-container {
     margin-top: 10px;
+    text-align: center;
 }
 
 button {
@@ -108,24 +83,39 @@ button {
     font-size: 16px;
     margin: 5px;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #218838;
 }
 
-/* 刪除X按鈕 */
+/* 提示訊息 */
+#copy-message {
+    color: green;
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 自定義選項按鈕區域 */
+.add-custom-option-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 自定義選項X按鈕 */
 .remove-btn {
-    background-color: red;
+    background-color: #FF4D4D;
     color: white;
-    border: none;
-    padding: 5px 10px;
     font-size: 12px;
+    padding: 5px 10px;
+    border: none;
     cursor: pointer;
     border-radius: 50%;
-    margin-left: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .remove-btn:hover {
-    background-color: darkred;
+    background-color: #e60000;
 }
