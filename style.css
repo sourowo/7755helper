@@ -1,90 +1,113 @@
-/* 自定義選項按鈕容器 */
-.custom-option-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;  /* 調整按鈕間距 */
+/* 基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* 摺疊區塊 */
+.accordion-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
     margin-top: 10px;
 }
 
-.custom-option-container button {
-    margin-right: 0;  /* 移除預設的右邊距 */
+.accordion-btn:hover {
+    background-color: #45a049;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* 選項按鈕 */
+.option-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.option-btn:hover {
+    background-color: #45a049;
 }
 
 /* 自定義選項 */
 .add-custom-option-container {
     display: flex;
+    gap: 10px;
     justify-content: center;
-    margin-top: 30px;
-    gap: 15px;
+    margin-top: 20px;
 }
 
 .add-custom-option-container input {
-    padding: 12px;
+    padding: 10px;
     font-size: 16px;
-    width: 250px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    transition: border 0.3s ease;
-}
-
-.add-custom-option-container input:focus {
-    border-color: #007BFF;
-    outline: none;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 .add-custom-option-container button {
-    padding: 12px 25px;
+    padding: 10px 20px;
     background-color: #007BFF;
     color: white;
-    font-size: 16px;
     border: none;
-    border-radius: 8px;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .add-custom-option-container button:hover {
     background-color: #0056b3;
 }
 
-/* 自定義選項區域 */
-#custom-options-container {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-#custom-options-container .option-btn {
-    padding: 12px 25px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 8px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+/* 輸入框 */
+textarea {
     margin-top: 10px;
-}
-
-#custom-options-container .option-btn:hover {
-    background-color: #0056b3;
-}
-
-#custom-options-container .delete-btn {
-    font-size: 16px;
-    background-color: #f44336;
-    color: white;
-    border: none;
+    width: 80%;
     padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-left: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
 }
 
-#custom-options-container .delete-btn:hover {
-    background-color: #d32f2f;
+/* 按鈕區 */
+.button-container {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
 }
