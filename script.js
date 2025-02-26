@@ -1,34 +1,97 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卿卿我我小幫手</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>卿卿我我小幫手</h1>
-    <div id="user-options">
-        <div class="option-container">
-            <button class="option-btn" onclick="setInputValue('描述和台詞均不要再重複')">描述和台詞均不要再重複</button>
-            <button class="option-btn" onclick="setInputValue('允許角色根據自身性格和想法發展劇情')">允許角色根據自身性格和想法發展劇情</button>
-            <button class="option-btn" onclick="setInputValue('文字段落間請空一行，請接續情形發展描述下去，字數至少700字')">文字段落間請空一行，請接續情形發展描述下去，字數至少700字</button>
-        </div>
-    </div>
+document.addEventListener("DOMContentLoaded", function () {
+    loadCustomOptions(); // 頁面載入時加載已存儲的自定義選項
+});
 
-    <!-- 自定義選項輸入框區域 -->
-    <input type="text" id="custom-option" placeholder="輸入自定義選項">
-    <button onclick="addCustomOption()">新增自定義選項</button>
+// 設定輸入框的值（點擊選項時加入輸入框）
+function setInputValue(option) {
+    var inputField = document.getElementById("input-field");
+    inputField.value += option + "\n"; // 每個選項換行
+}
 
-    <!-- 輸入框放在這裡，自定義選項下方 -->
-    <textarea id="input-field" rows="10" cols="50" style="resize: none;"></textarea><br>
+// 新增自定義選項
+function addCustomOption() {
+    var customOptionInput = document.getElementById("custom-option");
+    var customOption = customOptionInput.value.trim();
 
-    <!-- 複製內容按鈕放在輸入框下方 -->
-    <button onclick="copyInputValue()">複製內容</button>
+    if (customOption) {
+        createOptionButton(customOption);
+        saveCustomOptions(customOption);
 
-    <!-- 複製訊息提示 -->
-    <div id="copy-message" style="display: none; color: green;">已複製！</div>
+        // 清空輸入框
+        customOptionInput.value = "";
+    }
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+// 創建選項按鈕（含刪除功能）
+function createOptionButton(optionText) {
+    var optionContainer = document.createElement("div");
+    optionContainer.className = "option-container";
+
+    // 選項按鈕
+    var newButton = document.createElement("button");
+    newButton.className = "option-btn";
+    newButton.textContent = optionText;
+    newButton.onclick = function () {
+        setInputValue(optionText);
+    };
+
+    // 創建刪除按鈕
+    var deleteButton = document.createElement("button");
+    deleteButton.className = "delete-btn";
+    deleteButton.textContent = "❌";
+    deleteButton.onclick = function () {
+        optionContainer.remove(); // 移除選項按鈕
+        deleteCustomOption(optionText); // 從 localStorage 中刪除
+    };
+
+    // 將按鈕加入到 `optionContainer`
+    optionContainer.appendChild(newButton);
+    optionContainer.appendChild(deleteButton);
+
+    // 插入到選項區域
+    var userOptionsDiv = document.getElementById("user-options");
+    userOptionsDiv.appendChild(optionContainer);
+}
+
+// 儲存自定義選項到 localStorage
+function saveCustomOptions(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    
+    if (!customOptions.includes(optionText)) {
+        customOptions.push(optionText);
+        localStorage.setItem("customOptions", JSON.stringify(customOptions));
+    }
+}
+
+// 從 localStorage 加載自定義選項
+function loadCustomOptions() {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+
+    customOptions.forEach(function (option) {
+        createOptionButton(option);
+    });
+}
+
+// 刪除自定義選項（從 localStorage）
+function deleteCustomOption(optionText) {
+    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    var newOptions = customOptions.filter(option => option !== optionText);
+
+    localStorage.setItem("customOptions", JSON.stringify(newOptions));
+}
+
+// 複製輸入框內容
+function copyInputValue() {
+    var inputField = document.getElementById("input-field");
+    inputField.select();
+    document.execCommand("copy");
+
+    // 顯示已複製訊息
+    var copyMessage = document.getElementById("copy-message");
+    copyMessage.style.display = "block";
+
+    // 3 秒後隱藏已複製訊息
+    setTimeout(function () {
+        copyMessage.style.display = "none";
+    }, 3000);
+}
