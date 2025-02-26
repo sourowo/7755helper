@@ -42,7 +42,6 @@ function createCustomOptionButton(optionText) {
 
     const container = document.getElementById("custom-options-container");
     const optionContainer = document.createElement("div");
-    optionContainer.classList.add("custom-option-container");  // 新增容器類別以便樣式調整
     optionContainer.appendChild(button);
     optionContainer.appendChild(deleteButton);
     container.appendChild(optionContainer);
