@@ -1,4 +1,4 @@
-/* 頁面背景與字型設置 */
+/* 基本樣式 */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
@@ -7,7 +7,6 @@ body {
     padding: 20px;
 }
 
-/* 標題 */
 h1 {
     font-size: 2rem;
     color: #4CAF50;
@@ -23,7 +22,6 @@ details {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 摺疊區塊標題 */
 summary {
     padding: 10px;
     font-size: 1.2rem;
@@ -33,7 +31,7 @@ summary {
     border-radius: 5px;
 }
 
-/* 選項按鈕樣式 */
+/* 選項按鈕 */
 .option-container {
     padding: 10px;
     display: flex;
@@ -68,7 +66,7 @@ textarea {
     font-size: 14px;
 }
 
-/* 複製與清除按鈕區域 */
+/* 按鈕區域 */
 .button-container {
     margin-top: 10px;
     text-align: center;
