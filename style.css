@@ -1,20 +1,126 @@
+/* 設定整體頁面樣式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+/* 標題樣式 */
+h1 {
+    text-align: center;
+}
+
+/* 選項按鈕區域 */
+#user-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* 選項按鈕與刪除按鈕的容器 */
 .option-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 5px;
 }
 
+/* 選項按鈕 */
+.option-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+.option-btn:hover {
+    background-color: #0056b3;
+}
+
+/* 刪除按鈕 */
 .delete-btn {
     background-color: red;
     color: white;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 10px;
     font-size: 14px;
     border-radius: 5px;
 }
 
 .delete-btn:hover {
     background-color: darkred;
+}
+
+/* 自定義選項輸入區 */
+#custom-option {
+    width: calc(100% - 22px);
+    max-width: 300px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* 新增選項按鈕 */
+button {
+    display: block;
+    width: calc(100% - 22px);
+    max-width: 300px;
+    margin: 5px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 新增按鈕專屬樣式 */
+button:nth-of-type(2) {
+    background-color: #28a745;
+    color: white;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #218838;
+}
+
+/* 輸入框 */
+#input-field {
+    width: calc(100% - 22px);
+    max-width: 500px;
+    height: 150px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* 複製內容按鈕 */
+button:last-of-type {
+    background-color: #ffc107;
+    color: black;
+}
+
+button:last-of-type:hover {
+    background-color: #e0a800;
+}
+
+/* 複製成功訊息 */
+#copy-message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none;
 }
