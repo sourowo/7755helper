@@ -1,10 +1,10 @@
 /* 設定整體頁面樣式 */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
     padding: 20px;
     background-color: #f8f8f8;
-    text-align: left; /* 將內容對齊到左邊 */
+    text-align: left; /* 讓整個頁面內容靠左 */
 }
 
 /* 標題樣式 */
@@ -18,7 +18,7 @@ h1 {
     flex-direction: column;
     gap: 10px;
     max-width: 300px;
-    margin: 0 auto 20px;
+    margin: 0;  /* 取消自動居中對齊 */
 }
 
 /* 選項按鈕與刪除按鈕的容器 */
@@ -78,22 +78,19 @@ h1 {
 
 /* 自定義選項輸入區 */
 #custom-option {
-    width: calc(100% - 40px);
-    max-width: 300px;
+    width: 300px;  /* 不再自動寬度 */
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     display: block;
-    margin: 10px auto;
 }
 
 /* 新增選項按鈕 */
 button {
     display: block;
-    width: calc(100% - 40px);
-    max-width: 300px;
-    margin: 5px auto;
+    width: 300px; /* 不再自動寬度 */
+    margin: 5px 0;  /* 調整間距 */
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -114,15 +111,13 @@ button:nth-of-type(2):hover {
 
 /* 輸入框 */
 #input-field {
-    width: calc(100% - 40px);
-    max-width: 500px;
+    width: 300px;  /* 不再自動寬度 */
     height: 150px;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     display: block;
-    margin: 10px auto;
     font-size: 16px;
     resize: none;
 }
@@ -139,7 +134,7 @@ button:last-of-type:hover {
 
 /* 複製成功訊息 */
 #copy-message {
-    text-align: center;
+    text-align: left; /* 讓複製訊息靠左 */
     color: green;
     font-weight: bold;
     margin-top: 10px;
