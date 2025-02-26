@@ -22,8 +22,11 @@ function addCustomOption() {
     }
 }
 
-// 創建選項按鈕
+// 創建選項按鈕（含刪除功能）
 function createOptionButton(optionText) {
+    var optionContainer = document.createElement("div");
+    optionContainer.className = "option-container";
+
     var newButton = document.createElement("button");
     newButton.className = "option-btn";
     newButton.textContent = optionText;
@@ -31,42 +34,6 @@ function createOptionButton(optionText) {
         setInputValue(optionText);
     };
 
-    // 插入按鈕到選項區域
-    var userOptionsDiv = document.getElementById("user-options");
-    userOptionsDiv.appendChild(newButton);
-}
-
-// 儲存自定義選項到 localStorage
-function saveCustomOptions(optionText) {
-    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-    
-    if (!customOptions.includes(optionText)) {
-        customOptions.push(optionText);
-        localStorage.setItem("customOptions", JSON.stringify(customOptions));
-    }
-}
-
-// 從 localStorage 加載自定義選項
-function loadCustomOptions() {
-    var customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-
-    customOptions.forEach(function (option) {
-        createOptionButton(option);
-    });
-}
-
-// 複製輸入框內容
-function copyInputValue() {
-    var inputField = document.getElementById("input-field");
-    inputField.select();
-    document.execCommand("copy");
-
-    // 顯示已複製訊息
-    var copyMessage = document.getElementById("copy-message");
-    copyMessage.style.display = "block";
-
-    // 3 秒後隱藏已複製訊息
-    setTimeout(function () {
-        copyMessage.style.display = "none";
-    }, 3000);
-}
+    // 創建刪除按鈕
+    var deleteButton = document.createElement("button");
+    dele
