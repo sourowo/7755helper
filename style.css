@@ -20,6 +20,10 @@ h1 {
     background-color: #ddd;
 }
 
+.accordion-button.active {
+    background-color: #ccc;
+}
+
 .panel {
     display: none;
     padding-left: 20px;
