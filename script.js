@@ -138,3 +138,19 @@ function deleteCustomOption(optionText) {
     customOptions = customOptions.filter(option => option !== optionText);
     localStorage.setItem("customOptions", JSON.stringify(customOptions));
 }
+
+// 初始化摺疊區塊
+function initAccordion() {
+    const accordions = document.querySelectorAll(".accordion-button");
+    accordions.forEach(accordion => {
+        accordion.addEventListener("click", function() {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    });
+}
