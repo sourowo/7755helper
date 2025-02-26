@@ -10,81 +10,50 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* Accordion 的樣式 */
-details {
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-summary {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: left;
-    margin: 0;
-}
-
-summary:hover {
-    background-color: #0056b3;
-}
-
-/* 展開的內容 */
-.option-container {
-    padding: 10px;
+/* 選項區域 */
+#user-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 /* 選項按鈕 */
-.option-btn {
+.accordion-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 10px 20px;
     cursor: pointer;
+    font-size: 16px;
+    margin: 5px 0;
     border-radius: 5px;
-    margin: 5px;
 }
 
-.option-btn:hover {
+.accordion-btn:hover {
     background-color: #45a049;
 }
 
-/* 自定義選項輸入 */
-.add-custom-option-container {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.add-custom-option-container input {
-    padding: 10px;
-    font-size: 16px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.add-custom-option-container button {
-    padding: 10px 20px;
+/* 複選選項 */
+.option-btn {
     background-color: #007BFF;
     color: white;
-    border: none;
+    padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
+    margin: 5px;
     cursor: pointer;
 }
 
-.add-custom-option-container button:hover {
+.option-btn:hover {
     background-color: #0056b3;
 }
 
-/* 輸入框 */
+/* 自定義選項 */
+.add-custom-option-container {
+    margin-top: 20px;
+}
+
 textarea {
     margin-top: 10px;
     width: 80%;
@@ -94,7 +63,6 @@ textarea {
     resize: vertical;
 }
 
-/* 按鈕區 */
 .button-container {
     margin-top: 10px;
 }
@@ -112,4 +80,17 @@ button {
 
 button:hover {
     background-color: #218838;
+}
+
+/* Accordion 顯示隱藏面板 */
+.panel {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.accordion-btn.active + .panel {
+    display: block;
 }
