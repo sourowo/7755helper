@@ -46,8 +46,8 @@ h1 {
 
 /* 修改選項按鈕顏色：用灰色系取代藍色、綠色、橙色 */
 .option-btn {
-    background-color: #a6a6a6; /* 淺灰色 */
-    color: white;
+    background-color: #b8b8b8 !important; /* 強制應用淺灰色 */
+    color: white !important;
     border: none;
     cursor: pointer;
     padding: 8px 15px;
@@ -57,7 +57,7 @@ h1 {
 }
 
 .option-btn:hover {
-    background-color: #808080; /* 中灰色 */
+    background-color: #a0a0a0 !important; /* 中灰色 */
 }
 
 /* 刪除按鈕（❌）美化 */
@@ -70,91 +70,4 @@ h1 {
     font-weight: bold;
     padding: 5px;
     border-radius: 50%;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-}
-
-/* 滑鼠移上去時，變成更深灰色圓形背景，❌變白色 */
-.delete-btn:hover {
-    background-color: #b5b5b5;
-    color: white;
-}
-
-/* 按下去時，變成更深的灰色 */
-.delete-btn:active {
-    background-color: #8c8c8c;
-    color: white;
-    transform: scale(0.9);
-}
-
-/* 自定義選項輸入區 */
-#custom-option {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    border: 1px solid #ccc; /* 淺灰色邊框 */
-    border-radius: 5px;
-    display: block;
-    font-size: 16px;
-    color: #333; /* 深灰色文字 */
-}
-
-/* 新增選項按鈕 */
-button {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-/* 新增選項按鈕（米色） */
-button:nth-of-type(2) {
-    background-color: #d4d0c8; /* 米色 */
-    color: white;
-}
-
-button:nth-of-type(2):hover {
-    background-color: #bfb7a7; /* 淺米灰色 */
-}
-
-/* 輸入框 */
-#input-field {
-    width: 100%;
-    height: 150px;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: block;
-    font-size: 16px;
-    color: #333;
-    resize: none;
-}
-
-/* 複製內容按鈕 */
-button:last-of-type {
-    background-color: #d9c8d6; /* 淺紫色 */
-    color: white;
-}
-
-button:last-of-type:hover {
-    background-color: #b6a6b0; /* 淺紫灰色 */
-}
-
-/* 複製成功訊息 */
-#copy-message {
-    text-align: left;
-    color: #6c757d; /* 淺灰色 */
-    font-weight: bold;
-    margin-top: 10px;
-    display: none;
-}
+    transition: all 0.
