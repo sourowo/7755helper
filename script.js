@@ -114,6 +114,7 @@ function createOptionButton(optionText) {
     deleteButton.onclick = function() {
         deleteCustomOption(optionText);
         customOptionsContainer.removeChild(button);
+        customOptionsContainer.removeChild(deleteButton);
     };
 
     customOptionsContainer.appendChild(button);
