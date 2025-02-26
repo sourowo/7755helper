@@ -1,53 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
-    loadCustomOptions();
+    loadInputValue(); // 載入輸入欄內容
 });
 
 // 設定輸入框的值
 function setInputValue(option) {
     var inputField = document.getElementById("input-field");
     inputField.value += option + "\n";
-}
-
-// 新增自定義選項
-function addCustomOption() {
-    var customOptionInput = document.getElementById("custom-option");
-    var customOption = customOptionInput.value.trim();
-
-    if (customOption) {
-        createOptionButton(customOption);
-        saveCustomOptions(customOption);
-        customOptionInput.value = "";
-    }
-}
-
-// 創建選項按鈕
-function createOptionButton(optionText) {
-    var optionContainer = document.createElement("div");
-    optionContainer.className = "option-container";
-
-    var newButton = document.createElement("button");
-    newButton.className = "option-btn";
-    newButton.textContent = optionText;
-    newButton.onclick = function () {
-        setInputValue(optionText);
-    };
-
-    var deleteButton = document.createElement("button");
-    deleteButton.className = "delete-btn";
-    deleteButton.textContent = "❌";
-    deleteButton.onclick = function () {
-        optionContainer.remove();
-        deleteCustomOption(optionText);
-    };
-
-    optionContainer.appendChild(newButton);
-    optionContainer.appendChild(deleteButton);
-    document.getElementById("user-options").appendChild(optionContainer);
+    saveInputValue();
 }
 
 // 清除輸入框內容
 function clearInputValue() {
     document.getElementById("input-field").value = "";
+    saveInputValue();
+}
+
+// 監聽輸入框變化，並存入 localStorage
+document.getElementById("input-field").addEventListener("input", saveInputValue);
+
+function saveInputValue() {
+    var inputValue = document.getElementById("input-field").value;
+    localStorage.setItem("savedInput", inputValue);
+}
+
+function loadInputValue() {
+    var savedInput = localStorage.getItem("savedInput");
+    if (savedInput) {
+        document.getElementById("input-field").value = savedInput;
+    }
 }
 
 // 複製輸入內容
