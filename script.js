@@ -74,3 +74,4 @@ function copyInputValue() {
 function clearInputValue() {
     document.getElementById("input-field").value = '';
 }
+
