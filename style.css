@@ -124,3 +124,10 @@ input, button {
         max-width: none; /* 取消最大寬度限制 */
     }
 }
+
+/* 保證新增自定義選項和輸入框不會並排 */
+.add-custom-option-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
