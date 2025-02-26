@@ -9,6 +9,7 @@
 <body>
     <h1>卿卿我我小幫手</h1>
     <div id="user-options">
+        <!-- 預設選項按鈕區域 -->
         <div class="option-container">
             <button class="option-btn" onclick="setInputValue('*(描述和台詞均不要再重複)*')">*(描述和台詞均不要再重複)*</button>
             <button class="option-btn" onclick="setInputValue('*(允許角色根據自身性格和想法發展劇情)*')">*(允許角色根據自身性格和想法發展劇情)*</button>
@@ -22,8 +23,10 @@
     </div>
 
     <!-- 自定義選項輸入框區域 -->
-    <input type="text" id="custom-option" placeholder="輸入自定義選項">
-    <button onclick="addCustomOption()">新增自定義選項</button>
+    <div class="add-custom-option-container">
+        <input type="text" id="custom-option" placeholder="輸入自定義選項">
+        <button onclick="addCustomOption()">新增自定義選項</button>
+    </div>
 
     <!-- 輸入框放在這裡，自定義選項下方 -->
     <textarea id="input-field" rows="10" cols="50" style="resize: none;"></textarea><br>
