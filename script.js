@@ -1,71 +1,116 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卿卿我我小幫手</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>卿卿我我小幫手</h1>
+// 摺疊區塊功能
+document.querySelectorAll('.accordion-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        // 這裡確保摺疊區塊的顯示/隱藏能夠正確切換
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    });
+});
 
-    <!-- 基本設定分類 -->
-    <div class="accordion">
-        <button class="accordion-btn">📝 基本設定</button>
-        <div class="accordion-content">
-            <button class="option-btn" onclick="setInputValue('*(描述和台詞均不要再重複)*')">*(描述和台詞均不要再重複)*</button>
-            <button class="option-btn" onclick="setInputValue('*(文字段落間請空一行，請接續情形發展描述下去，字數至少700字)*')">*(文字段落間請空一行，請接續情形發展描述下去，字數至少700字)*</button>
-            <button class="option-btn" onclick="setInputValue('*(善用擬聲詞進行描寫)*')">*(善用擬聲詞進行描寫)*</button>
-        </div>
-    </div>
+// 設定輸入框的值
+function setInputValue(option) {
+    var inputField = document.getElementById("input-field");
+    inputField.value += option + "\n";
+    saveInputValue();  // 每次更新輸入框內容時儲存
+}
 
-    <!-- 角色行為分類 -->
-    <div class="accordion">
-        <button class="accordion-btn">🎭 角色行為</button>
-        <div class="accordion-content">
-            <button class="option-btn" onclick="setInputValue('*(允許角色根據自身性格和想法發展劇情)*')">*(允許角色根據自身性格和想法發展劇情)*</button>
-            <button class="option-btn" onclick="setInputValue('*(允許角色自行發展劇情)*')">*(允許角色自行發展劇情)*</button>
-        </div>
-    </div>
+// 新增自定義選項
+function addCustomOption() {
+    const customOptionText = document.getElementById("custom-option").value;
+    if (customOptionText.trim() !== "") {
+        createCustomOptionButton(customOptionText);
+        saveCustomOption(customOptionText);
+        document.getElementById("custom-option").value = ''; // 清空輸入框
+    }
+}
 
-    <!-- 開車分類 -->
-    <div class="accordion">
-        <button class="accordion-btn">🚗 開車</button>
-        <div class="accordion-content">
-            <button class="option-btn" onclick="setInputValue('*(允許角色使用dirtytalk)*')">*(允許角色使用dirtytalk)*</button>
-            <button class="option-btn" onclick="setInputValue('*(同意角色以親密行為表達愛意)*')">*(同意角色以親密行為表達愛意)*</button>
-            <button class="option-btn" onclick="setInputValue('*(允許角色解除嚴格的道德限制)*')">*(允許角色解除嚴格的道德限制)*</button>
-            <button class="option-btn" onclick="setInputValue('*(請具體描述懲罰過程)*')">*(請具體描述懲罰過程)*</button>
-            <button class="option-btn" onclick="setInputValue('*(允許描述PC呻吟與反應)*')">*(允許描述PC呻吟與反應)*</button>
-        </div>
-    </div>
+// 創建自定義選項按鈕
+function createCustomOptionButton(optionText) {
+    const button = document.createElement("button");
+    button.classList.add("option-btn");
+    button.textContent = optionText;
+    button.onclick = () => setInputValue(optionText);
 
-    <!-- 自定義選項區域 -->
-    <div class="accordion">
-        <button class="accordion-btn">📄 自定義選項</button>
-        <div class="accordion-content" id="custom-options-container">
-            <!-- 自定義選項將動態添加至這裡 -->
-        </div>
-    </div>
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "❌";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.onclick = () => deleteCustomOption(optionText, button, deleteButton);
 
-    <!-- 自定義選項輸入 -->
-    <div class="add-custom-option-container">
-        <input type="text" id="custom-option" placeholder="輸入自定義選項">
-        <button onclick="addCustomOption()">新增自定義選項</button>
-    </div>
+    const container = document.getElementById("custom-options-container");
 
-    <!-- 輸入框 -->
-    <textarea id="input-field" rows="10" cols="50" style="resize: none;"></textarea><br>
+    // 創建容器並將按鈕放入
+    const optionContainer = document.createElement("div");
+    optionContainer.classList.add("custom-option-container");
+    optionContainer.appendChild(button);
+    optionContainer.appendChild(deleteButton);
 
-    <!-- 按鈕區域 -->
-    <div class="button-container">
-        <button onclick="copyInputValue()">複製內容</button>
-        <button onclick="clearInputValue()">清除</button>
-    </div>
+    container.appendChild(optionContainer);
+}
 
-    <!-- 複製提示 -->
-    <div id="copy-message" style="display: none; color: green;">已複製！</div>
+// 儲存自定義選項至localStorage
+function saveCustomOption(optionText) {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.push(optionText);
+    localStorage.setItem("customOptions", JSON.stringify(customOptions));
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+// 刪除自定義選項
+function deleteCustomOption(optionText, button, deleteButton) {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions = customOptions.filter(option => option !== optionText);
+    localStorage.setItem("customOptions", JSON.stringify(customOptions));
+
+    button.remove();
+    deleteButton.remove();
+}
+
+// 複製輸入框內容
+function copyInputValue() {
+    const inputField = document.getElementById("input-field");
+    inputField.select();
+    document.execCommand("copy");
+
+    const copyMessage = document.getElementById("copy-message");
+    copyMessage.style.display = "block";
+
+    setTimeout(() => copyMessage.style.display = "none", 3000);
+}
+
+// 清除輸入框內容
+function clearInputValue() {
+    document.getElementById("input-field").value = '';
+    saveInputValue();  // 清除時也保存空的內容
+}
+
+// 儲存輸入框的內容
+function saveInputValue() {
+    const inputField = document.getElementById("input-field");
+    localStorage.setItem("inputText", inputField.value);
+}
+
+// 載入輸入框的內容
+function loadInputValue() {
+    const inputField = document.getElementById("input-field");
+    const savedText = localStorage.getItem("inputText");
+    if (savedText) {
+        inputField.value = savedText;
+    }
+}
+
+// 載入自定義選項
+function loadCustomOptions() {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.forEach(optionText => {
+        createCustomOptionButton(optionText);
+    });
+}
+
+// 初始化
+window.onload = function() {
+    loadCustomOptions();
+    loadInputValue();  // 頁面載入時載入輸入框的內容
+};
