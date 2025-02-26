@@ -9,7 +9,7 @@ body {
 
 /* 居中容器，設置最大寬度 */
 .container {
-    max-width: 1200px; /* 設置最大寬度 */
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
@@ -21,7 +21,7 @@ h1 {
 
 /* 摺疊區塊 */
 .accordion-btn {
-    background-color: #4CAF50;
+    background-color: #6c757d; /* 改為灰色 */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -34,7 +34,7 @@ h1 {
 }
 
 .accordion-btn:hover {
-    background-color: #45a049;
+    background-color: #5a6268; /* 深灰色 */
 }
 
 .accordion-content {
@@ -63,7 +63,7 @@ h1 {
 
 .add-custom-option-container button {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #007BFF; /* 藍色 */
     color: white;
     border: none;
     font-size: 16px;
@@ -78,8 +78,8 @@ h1 {
 /* 輸入框 */
 textarea {
     margin-top: 10px;
-    width: 100%; /* 設置寬度為100% */
-    max-width: 600px; /* 設置最大寬度 */
+    width: 100%;
+    max-width: 600px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -93,7 +93,7 @@ textarea {
 
 button {
     padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #6c757d; /* 改為灰色 */
     color: white;
     border: none;
     cursor: pointer;
@@ -103,7 +103,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #5a6268;
 }
 
 /* 複製提示 */
@@ -115,38 +115,22 @@ button:hover {
 /* 響應式設計 - 手機端 */
 @media (max-width: 768px) {
     .accordion-btn {
-        font-size: 14px; /* 減小字體大小 */
+        font-size: 14px;
     }
 
     .add-custom-option-container input {
-        width: 150px; /* 輸入框在手機端更小 */
+        width: 150px;
     }
 
     .add-custom-option-container button {
-        font-size: 14px; /* 按鈕字體大小調整 */
+        font-size: 14px;
     }
 
     textarea {
-        max-width: 100%; /* 在手機上，文本區塊的寬度為100% */
+        max-width: 100%;
     }
 
     .button-container button {
-        font-size: 14px; /* 按鈕字體大小調整 */
+        font-size: 14px;
     }
-}
-
-/* 更新分類按鈕顏色 */
-.category-button {
-    background-color: #6c757d; /* 改成灰色 */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.category-button:hover {
-    background-color: #5a6268; /* 鼠標懸停時改成深灰 */
 }
