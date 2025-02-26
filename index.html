@@ -1,0 +1,18 @@
+<div id="user-options">
+  <button class="option-btn" onclick="setInputValue('選項一')">選項一</button>
+  <button class="option-btn" onclick="setInputValue('選項二')">選項二</button>
+  <button class="option-btn" onclick="setInputValue('選項三')">選項三</button>
+</div>
+
+<!-- 自定義選項輸入框區域 -->
+<input type="text" id="custom-option" placeholder="輸入自定義選項">
+<button onclick="addCustomOption()">新增自定義選項</button>
+
+<!-- 輸入框放在這裡，自定義選項下方 -->
+<textarea id="input-field" rows="10" cols="50" style="resize: none;"></textarea><br>
+
+<!-- 複製內容按鈕放在輸入框下方 -->
+<button onclick="copyInputValue()">複製內容</button>
+
+<!-- 複製訊息提示 -->
+<div id="copy-message" style="display: none; color: green;">已複製！</div>
