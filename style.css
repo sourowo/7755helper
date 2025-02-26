@@ -5,7 +5,6 @@ body {
     text-align: center;
     padding: 20px;
     margin: 0;
-    transition: background-color 0.3s ease; /* 背景顏色過渡 */
 }
 
 /* 居中容器，設置最大寬度 */
@@ -18,8 +17,6 @@ body {
 /* 標題 */
 h1 {
     margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
 }
 
 /* 摺疊區塊 */
@@ -32,15 +29,12 @@ h1 {
     cursor: pointer;
     width: 100%;
     text-align: left;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .accordion-btn:hover {
     background-color: #45a049;
-    transform: translateY(-2px); /* 按鈕懸停時的移動效果 */
 }
 
 .accordion-content {
@@ -49,7 +43,6 @@ h1 {
     background-color: #f4f4f4;
     border-radius: 5px;
     margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 自定義選項 */
@@ -64,13 +57,8 @@ h1 {
     padding: 10px;
     font-size: 16px;
     width: 200px;
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px solid #ccc;
-    transition: border-color 0.3s ease;
-}
-
-.add-custom-option-container input:focus {
-    border-color: #007BFF; /* 輸入框聚焦效果 */
 }
 
 .add-custom-option-container button {
@@ -79,9 +67,8 @@ h1 {
     color: white;
     border: none;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .add-custom-option-container button:hover {
@@ -91,17 +78,12 @@ h1 {
 /* 輸入框 */
 textarea {
     margin-top: 10px;
-    width: 100%;
-    max-width: 600px;
+    width: 100%; /* 設置寬度為100% */
+    max-width: 600px; /* 設置最大寬度 */
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     resize: vertical;
-    transition: border-color 0.3s ease;
-}
-
-textarea:focus {
-    border-color: #007BFF;
 }
 
 /* 按鈕區 */
@@ -117,8 +99,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin: 5px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -129,6 +110,21 @@ button:hover {
 #copy-message {
     display: none;
     color: green;
+}
+
+/* 改變分類內按鈕顏色 */
+.category-button {
+    background-color: #FF5733; /* 新的顏色 */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.category-button:hover {
+    background-color: #D43F00; /* 滑鼠懸停時顏色 */
 }
 
 /* 響應式設計 - 手機端 */
