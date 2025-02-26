@@ -79,3 +79,32 @@ function copyInputValue() {
 function clearInputValue() {
     document.getElementById("input-field").value = '';
 }
+
+// 載入自定義選項
+function loadCustomOptions() {
+    let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
+    customOptions.forEach(optionText => {
+        createCustomOptionButton(optionText);
+    });
+}
+
+// 載入輸入框的文字
+function loadInputValue() {
+    const inputField = document.getElementById("input-field");
+    const savedText = localStorage.getItem("inputText");
+    if (savedText) {
+        inputField.value = savedText;
+    }
+}
+
+// 監聽輸入框的變化並儲存
+document.getElementById("input-field").addEventListener("input", () => {
+    const inputField = document.getElementById("input-field");
+    localStorage.setItem("inputText", inputField.value);
+});
+
+// 初始化載入
+window.onload = function() {
+    loadCustomOptions();
+    loadInputValue();
+};
