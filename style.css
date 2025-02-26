@@ -25,8 +25,8 @@ h1 {
 /* 每個選項的容器 */
 .option-container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 10px;
 }
 
@@ -39,30 +39,16 @@ h1 {
     padding: 10px 20px;
     font-size: 14px;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
     max-width: 300px;
     white-space: normal; /* 讓文字可以換行 */
     word-wrap: break-word; /* 長文字會自動換行 */
+    line-height: 1.5;
 }
 
 /* 按鈕懸停效果 */
 .option-btn:hover {
     background-color: #2980b9;
-}
-
-/* 刪除按鈕樣式 */
-.delete-btn {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: #c0392b;
 }
 
 /* 自定義選項輸入框 */
@@ -114,12 +100,4 @@ button {
 /* 增加一些 margin 讓整體結構更有間距 */
 input, button {
     margin-bottom: 10px;
-}
-
-/* 選項按鈕文字顯示處理 */
-.option-btn {
-    text-align: left;  /* 使文字靠左顯示 */
-    word-break: break-word;
-    white-space: normal;
-    font-size: 14px;
 }
