@@ -3,8 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f8f8f8;
-    width: 100%; /* 確保寬度填滿螢幕 */
+    background-color: #f4f4f9; /* 淡灰色背景 */
+    width: 100%;
     text-align: left; /* 讓整個頁面內容靠左 */
     box-sizing: border-box;
 }
@@ -24,13 +24,15 @@ html, body {
 /* 標題樣式 */
 h1 {
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* 深灰色標題 */
 }
 
 /* 選項按鈕區域 */
 #user-options {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 300px;
 }
 
@@ -39,29 +41,29 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: flex-start; /* 讓按鈕排列在左邊 */
+    justify-content: flex-start;
 }
 
 /* 選項按鈕 */
 .option-btn {
-    background-color: #007bff;
+    background-color: #007b7f; /* 綠藍色 */
     color: white;
     border: none;
     cursor: pointer;
-    padding: 5px 10px;  /* 縮小按鈕大小 */
-    font-size: 14px;  /* 縮小字體 */
+    padding: 8px 15px;
+    font-size: 14px;
     border-radius: 5px;
     transition: background-color 0.2s;
 }
 
 .option-btn:hover {
-    background-color: #0056b3;
+    background-color: #006f6a; /* 深綠藍色 */
 }
 
 /* 刪除按鈕（❌）美化 */
 .delete-btn {
     background-color: transparent;
-    color: #dc3545; /* 紅色 */
+    color: #9e9e9e; /* 灰色 */
     border: none;
     cursor: pointer;
     font-size: 16px;
@@ -72,39 +74,41 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 }
 
-/* 滑鼠移上去時，變成紅色圓形背景，❌變白色 */
+/* 滑鼠移上去時，變成更深灰色圓形背景，❌變白色 */
 .delete-btn:hover {
-    background-color: #dc3545;
+    background-color: #b5b5b5;
     color: white;
 }
 
-/* 按下去時，變成更深的紅色 */
+/* 按下去時，變成更深的灰色 */
 .delete-btn:active {
-    background-color: #a71d2a;
+    background-color: #8c8c8c;
     color: white;
     transform: scale(0.9);
 }
 
 /* 自定義選項輸入區 */
 #custom-option {
-    width: 300px;  /* 設定固定寬度 */
+    width: 100%;
     padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
+    margin-top: 15px;
+    border: 1px solid #ccc; /* 淺灰色邊框 */
     border-radius: 5px;
     display: block;
+    font-size: 16px;
+    color: #333; /* 深灰色文字 */
 }
 
 /* 新增選項按鈕 */
 button {
     display: block;
-    width: 300px; /* 設定固定寬度 */
-    margin: 5px 0;  /* 調整按鈕間距 */
-    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -112,43 +116,44 @@ button {
     transition: background-color 0.2s;
 }
 
-/* 新增選項按鈕 */
+/* 新增選項按鈕（綠色） */
 button:nth-of-type(2) {
-    background-color: #28a745;
+    background-color: #5cb85c; /* 柔和綠色 */
     color: white;
 }
 
 button:nth-of-type(2):hover {
-    background-color: #218838;
+    background-color: #4cae4c; /* 深綠色 */
 }
 
 /* 輸入框 */
 #input-field {
-    width: 300px;  /* 設定固定寬度 */
+    width: 100%;
     height: 150px;
-    padding: 10px;
+    padding: 12px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     display: block;
     font-size: 16px;
+    color: #333;
     resize: none;
 }
 
 /* 複製內容按鈕 */
 button:last-of-type {
-    background-color: #ffc107;
-    color: black;
+    background-color: #f0ad4e; /* 淺橙色 */
+    color: white;
 }
 
 button:last-of-type:hover {
-    background-color: #e0a800;
+    background-color: #ec971f; /* 橙色 */
 }
 
 /* 複製成功訊息 */
 #copy-message {
-    text-align: left; /* 讓複製訊息靠左 */
-    color: green;
+    text-align: left;
+    color: #28a745; /* 柔和綠色 */
     font-weight: bold;
     margin-top: 10px;
     display: none;
