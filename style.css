@@ -14,6 +14,7 @@ h1 {
     cursor: pointer;
     width: 100%;
     text-align: left;
+    margin-bottom: 5px;
 }
 
 .accordion-button:hover {
@@ -79,4 +80,3 @@ textarea {
     margin-top: 10px;
     font-size: 16px;
 }
-
