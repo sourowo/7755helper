@@ -41,13 +41,9 @@ function createCustomOptionButton(optionText) {
     deleteButton.onclick = () => deleteCustomOption(optionText, button, deleteButton);
 
     const container = document.getElementById("custom-options-container");
-
-    // 創建容器並將按鈕放入
     const optionContainer = document.createElement("div");
-    optionContainer.classList.add("custom-option-container");
     optionContainer.appendChild(button);
     optionContainer.appendChild(deleteButton);
-
     container.appendChild(optionContainer);
 }
 
