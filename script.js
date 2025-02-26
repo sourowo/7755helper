@@ -1,47 +1,68 @@
-// 載入已儲存的自定義選項和輸入框內容
+// 當頁面載入完成時執行的代碼
 window.onload = function() {
-    loadCustomOptions();
-    loadInputValue();
+    loadCustomOptions();  // 加載自定義選項
+    loadInputValue();     // 加載輸入框的內容
+    loadDefaultOptions(); // 加載既定選項
 };
+
+// 加載既定選項
+function loadDefaultOptions() {
+    const defaultOptions = [
+        "*描述和台詞均不要再重複*",
+        "*文字段落間請空一行，請接續情形發展描述下去，字數至少700字*",
+        "*善用擬聲詞進行描寫*"
+    ];
+
+    const container = document.getElementById("default-options");
+
+    defaultOptions.forEach(option => {
+        const button = document.createElement("button");
+        button.classList.add("option-btn");
+        button.textContent = option;
+        button.onclick = function() {
+            setInputValue(option);
+        };
+        container.appendChild(button);
+    });
+}
 
 // 設定輸入框的值
 function setInputValue(option) {
-    var inputField = document.getElementById("input-field");
+    const inputField = document.getElementById("input-field");
     inputField.value += option + "\n";
     saveInputValue();
+}
+
+// 儲存輸入框內容到 localStorage
+function saveInputValue() {
+    const inputValue = document.getElementById("input-field").value;
+    localStorage.setItem("savedInput", inputValue);
+}
+
+// 加載輸入框的內容
+function loadInputValue() {
+    const savedInput = localStorage.getItem("savedInput");
+    if (savedInput) {
+        document.getElementById("input-field").value = savedInput;
+    }
+}
+
+// 複製輸入框內容
+function copyInputValue() {
+    const inputField = document.getElementById("input-field");
+    inputField.select();
+    document.execCommand("copy");
+
+    const copyMessage = document.getElementById("copy-message");
+    copyMessage.style.display = "block";
+
+    setTimeout(() => copyMessage.style.display = "none", 3000);
 }
 
 // 清除輸入框內容
 function clearInputValue() {
     document.getElementById("input-field").value = "";
     saveInputValue();
-}
-
-// 監聽輸入框變化，並存入 localStorage
-document.getElementById("input-field").addEventListener("input", saveInputValue);
-
-function saveInputValue() {
-    var inputValue = document.getElementById("input-field").value;
-    localStorage.setItem("savedInput", inputValue);
-}
-
-function loadInputValue() {
-    var savedInput = localStorage.getItem("savedInput");
-    if (savedInput) {
-        document.getElementById("input-field").value = savedInput;
-    }
-}
-
-// 複製輸入內容
-function copyInputValue() {
-    var inputField = document.getElementById("input-field");
-    inputField.select();
-    document.execCommand("copy");
-
-    var copyMessage = document.getElementById("copy-message");
-    copyMessage.style.display = "block";
-
-    setTimeout(() => copyMessage.style.display = "none", 3000);
 }
 
 // 儲存自定義選項到 localStorage
@@ -57,46 +78,49 @@ function loadCustomOptions() {
     const customOptionsContainer = document.getElementById("custom-options");
     customOptionsContainer.innerHTML = ""; // 清空自定義選項區域
 
-    customOptions.forEach(function(option, index) {
-        const optionDiv = document.createElement("div");
-        optionDiv.classList.add("custom-option");
-        
-        const optionButton = document.createElement("button");
-        optionButton.textContent = `*${option}*`;
-        optionButton.classList.add("option-btn");
-        optionButton.onclick = function() {
-            setInputValue(`*${option}*`);
-        };
-        
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "X";
-        removeButton.classList.add("remove-btn");
-        removeButton.onclick = function() {
-            removeCustomOption(index);
-        };
-
-        optionDiv.appendChild(optionButton);
-        optionDiv.appendChild(removeButton);
-        customOptionsContainer.appendChild(optionDiv);
+    customOptions.forEach(optionText => {
+        createOptionButton(optionText);
     });
+}
+
+// 創建自定義選項按鈕
+function createOptionButton(optionText) {
+    const customOptionsContainer = document.getElementById("custom-options");
+
+    const button = document.createElement("button");
+    button.classList.add("option-btn");
+    button.textContent = optionText;
+    button.onclick = function() {
+        setInputValue(optionText);
+    };
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "X";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.onclick = function() {
+        deleteCustomOption(optionText);
+        customOptionsContainer.removeChild(button);
+    };
+
+    customOptionsContainer.appendChild(button);
+    customOptionsContainer.appendChild(deleteButton);
 }
 
 // 新增自定義選項
 function addCustomOption() {
     const customOptionInput = document.getElementById("custom-option");
-    const optionText = customOptionInput.value.trim();
+    const customOptionText = customOptionInput.value.trim();
 
-    if (optionText !== "") {
-        saveCustomOptions(optionText);
-        loadCustomOptions();  // 重新加載自定義選項顯示
+    if (customOptionText) {
+        createOptionButton(customOptionText);
+        saveCustomOptions(customOptionText);
         customOptionInput.value = ""; // 清空輸入框
     }
 }
 
-// 移除自定義選項
-function removeCustomOption(index) {
+// 刪除自定義選項
+function deleteCustomOption(optionText) {
     let customOptions = JSON.parse(localStorage.getItem("customOptions")) || [];
-    customOptions.splice(index, 1);  // 移除指定的選項
+    customOptions = customOptions.filter(option => option !== optionText);
     localStorage.setItem("customOptions", JSON.stringify(customOptions));
-    loadCustomOptions();  // 重新加載自定義選項顯示
 }
