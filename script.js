@@ -18,9 +18,9 @@ function addCustomOption() {
             setInputValue(customOption);
         };
 
-        // 將新按鈕插入到現有選項的最前面
+        // 將新按鈕插入到現有選項的末尾
         var userOptionsDiv = document.getElementById('user-options');
-        userOptionsDiv.insertBefore(newButton, userOptionsDiv.firstChild);
+        userOptionsDiv.appendChild(newButton);
 
         // 清空自定義選項的輸入框
         document.getElementById('custom-option').value = '';
