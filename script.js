@@ -17,7 +17,7 @@ function saveInputValue() {
     localStorage.setItem("savedInput", inputValue);
 }
 
-// 載入輸入框內容
+// 載入自訂選項
 document.addEventListener("DOMContentLoaded", function () {
     loadInputValue(); // 載入輸入欄內容
     loadCustomOptions(); // 載入自訂選項
@@ -101,4 +101,3 @@ function copyInputValue() {
 
     setTimeout(() => copyMessage.style.display = "none", 3000);
 }
-
