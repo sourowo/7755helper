@@ -101,3 +101,26 @@ button {
 input, button {
     margin-bottom: 10px;
 }
+
+/* 響應式設計 - 小螢幕（手機）時調整選項排列 */
+@media (max-width: 600px) {
+    #user-options {
+        flex-direction: column; /* 垂直排列選項按鈕 */
+        gap: 8px; /* 適當縮小按鈕間距 */
+    }
+
+    .option-btn {
+        width: 100%; /* 按鈕寬度設為100% */
+        max-width: none; /* 取消最大寬度限制 */
+    }
+
+    #custom-option, #input-field {
+        width: 100%; /* 輸入框寬度設定為100% */
+        max-width: none; /* 取消最大寬度限制 */
+    }
+
+    button {
+        width: 100%; /* 按鈕寬度設為100% */
+        max-width: none; /* 取消最大寬度限制 */
+    }
+}
