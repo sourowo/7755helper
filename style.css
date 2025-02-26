@@ -12,13 +12,19 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* 讓所有內容不置中 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* 選項按鈕區域 */
 #user-options {
     display: flex;
     flex-direction: column;
     gap: 10px;
     max-width: 300px;
-    margin: 0;  /* 取消自動居中對齊 */
 }
 
 /* 選項按鈕與刪除按鈕的容器 */
@@ -78,7 +84,7 @@ h1 {
 
 /* 自定義選項輸入區 */
 #custom-option {
-    width: 300px;  /* 不再自動寬度 */
+    width: 300px;  /* 設定固定寬度 */
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
@@ -89,8 +95,8 @@ h1 {
 /* 新增選項按鈕 */
 button {
     display: block;
-    width: 300px; /* 不再自動寬度 */
-    margin: 5px 0;  /* 調整間距 */
+    width: 300px; /* 設定固定寬度 */
+    margin: 5px 0;  /* 調整按鈕間距 */
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -99,7 +105,7 @@ button {
     transition: background-color 0.2s;
 }
 
-/* 新增按鈕專屬樣式 */
+/* 新增選項按鈕 */
 button:nth-of-type(2) {
     background-color: #28a745;
     color: white;
@@ -111,7 +117,7 @@ button:nth-of-type(2):hover {
 
 /* 輸入框 */
 #input-field {
-    width: 300px;  /* 不再自動寬度 */
+    width: 300px;  /* 設定固定寬度 */
     height: 150px;
     padding: 10px;
     margin-top: 10px;
