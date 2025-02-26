@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f9; /* 淡灰色背景 */
+    background-color: #f9f9f9; /* 淺灰色背景 */
     width: 100%;
     text-align: left; /* 讓整個頁面內容靠左 */
     box-sizing: border-box;
@@ -46,7 +46,7 @@ h1 {
 
 /* 選項按鈕 */
 .option-btn {
-    background-color: #007b7f; /* 綠藍色 */
+    background-color: #a6a6a6; /* 淺灰色 */
     color: white;
     border: none;
     cursor: pointer;
@@ -57,7 +57,7 @@ h1 {
 }
 
 .option-btn:hover {
-    background-color: #006f6a; /* 深綠藍色 */
+    background-color: #808080; /* 中灰色 */
 }
 
 /* 刪除按鈕（❌）美化 */
@@ -116,14 +116,14 @@ button {
     transition: background-color 0.2s;
 }
 
-/* 新增選項按鈕（綠色） */
+/* 新增選項按鈕（米色） */
 button:nth-of-type(2) {
-    background-color: #5cb85c; /* 柔和綠色 */
+    background-color: #d4d0c8; /* 米色 */
     color: white;
 }
 
 button:nth-of-type(2):hover {
-    background-color: #4cae4c; /* 深綠色 */
+    background-color: #bfb7a7; /* 淺米灰色 */
 }
 
 /* 輸入框 */
@@ -142,18 +142,18 @@ button:nth-of-type(2):hover {
 
 /* 複製內容按鈕 */
 button:last-of-type {
-    background-color: #f0ad4e; /* 淺橙色 */
+    background-color: #d9c8d6; /* 淺紫色 */
     color: white;
 }
 
 button:last-of-type:hover {
-    background-color: #ec971f; /* 橙色 */
+    background-color: #b6a6b0; /* 淺紫灰色 */
 }
 
 /* 複製成功訊息 */
 #copy-message {
     text-align: left;
-    color: #28a745; /* 柔和綠色 */
+    color: #6c757d; /* 淺灰色 */
     font-weight: bold;
     margin-top: 10px;
     display: none;
