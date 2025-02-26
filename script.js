@@ -22,6 +22,9 @@ function addCustomOption() {
         var userOptionsDiv = document.getElementById('user-options');
         userOptionsDiv.appendChild(newButton);
 
+        // 儲存自定義選項到 localStorage
+        saveCustomOptions();
+
         // 清空自定義選項的輸入框
         document.getElementById('custom-option').value = '';
     }
@@ -42,3 +45,47 @@ function copyInputValue() {
         copyMessage.style.display = 'none';
     }, 3000);
 }
+
+// 儲存自定義選項到 localStorage
+function saveCustomOptions() {
+    var userOptionsDiv = document.getElementById('user-options');
+    var buttons = userOptionsDiv.getElementsByClassName('option-btn');
+    var customOptions = [];
+
+    // 獲取所有自定義選項按鈕的文字
+    for (var i = 0; i < buttons.length; i++) {
+        customOptions.push(buttons[i].textContent);
+    }
+
+    // 將選項存儲到 localStorage
+    localStorage.setItem('customOptions', JSON.stringify(customOptions));
+}
+
+// 從 localStorage 加載自定義選項
+function loadCustomOptions() {
+    var customOptions = localStorage.getItem('customOptions');
+
+    // 如果有自定義選項，則顯示在頁面上
+    if (customOptions) {
+        customOptions = JSON.parse(customOptions);
+        var userOptionsDiv = document.getElementById('user-options');
+
+        customOptions.forEach(function(option) {
+            var newButton = document.createElement('button');
+            newButton.className = 'option-btn';
+            newButton.textContent = option;
+
+            // 當按鈕被點擊時，將選項添加到輸入框中
+            newButton.onclick = function() {
+                setInputValue(option);
+            };
+
+            userOptionsDiv.appendChild(newButton);
+        });
+    }
+}
+
+// 頁面加載時，從 localStorage 加載自定義選項
+window.onload = function() {
+    loadCustomOptions();
+};
