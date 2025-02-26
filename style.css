@@ -1,83 +1,112 @@
+/* 基本樣式 */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
     padding: 20px;
 }
 
 h1 {
-    text-align: center;
+    margin-bottom: 20px;
 }
 
-.accordion-button {
-    padding: 10px;
-    background-color: #f1f1f1;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    margin-bottom: 5px;
-}
-
-.accordion-button:hover {
-    background-color: #ddd;
-}
-
-.accordion-button.active {
-    background-color: #ccc;
-}
-
-.panel {
-    display: none; /* 初始為隱藏 */
-    padding-left: 20px;
-    margin-top: 10px;
-}
-
-.option-btn {
-    margin: 5px 0;
-    padding: 5px;
-    background-color: #f1f1f1;
-    border: none;
-    cursor: pointer;
-}
-
-.option-btn:hover {
-    background-color: #ddd;
-}
-
-.delete-btn {
-    margin-left: 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.delete-btn:hover {
-    background-color: darkred;
-}
-
-button {
-    margin-top: 10px;
-    padding: 10px;
+/* 摺疊區塊 */
+.accordion-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-button:hover {
+.accordion-btn:hover {
     background-color: #45a049;
 }
 
-textarea {
-    width: 100%;
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+/* 選項按鈕 */
+.option-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.option-btn:hover {
+    background-color: #45a049;
+}
+
+/* 自定義選項 */
+.add-custom-option-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
     margin-top: 20px;
 }
 
-.button-container {
-    margin-top: 20px;
-}
-
-#copy-message {
-    margin-top: 10px;
+.add-custom-option-container input {
+    padding: 10px;
     font-size: 16px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-custom-option-container button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-custom-option-container button:hover {
+    background-color: #0056b3;
+}
+
+/* 輸入框 */
+textarea {
+    margin-top: 10px;
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* 按鈕區 */
+.button-container {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
 }
