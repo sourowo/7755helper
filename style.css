@@ -107,10 +107,16 @@ button:hover {
 }
 
 /* 新增自定義選項按鈕與刪除按鈕並排 */
-.option-container div {
+.add-custom-option-container {
     display: flex;
     align-items: center;
+}
+
+.option-container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
 }
 
 .delete-btn {
@@ -121,9 +127,23 @@ button:hover {
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .delete-btn:hover {
     background-color: #e60000;
+}
+
+.option-container div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 調整input框和新增選項按鈕的排版 */
+.add-custom-option-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
 }
