@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+    loadInputValue(); // 載入輸入欄內容
+    loadCustomOptions(); // 載入自訂選項
+    setupAccordions(); // 初始化 Accordion 展開/折疊功能
+});
+
 // 設定輸入框的值
 function setInputValue(option) {
     var inputField = document.getElementById("input-field");
@@ -12,12 +18,6 @@ function saveInputValue() {
 }
 
 // 載入頁面時載入已儲存的輸入框內容
-document.addEventListener("DOMContentLoaded", function () {
-    loadInputValue();  // 載入儲存的輸入框內容
-    loadCustomOptions();  // 載入自訂選項
-});
-
-// 從 localStorage 讀取儲存的輸入框內容
 function loadInputValue() {
     var savedInput = localStorage.getItem("savedInput");
     if (savedInput) {
@@ -76,11 +76,6 @@ function createCustomOptionButton(optionText) {
     customOptionsContainer.appendChild(newButton);
 }
 
-// 載入頁面時加載所有選項並顯示在面板中
-document.addEventListener("DOMContentLoaded", function () {
-    setupAccordions(); // 初始化 Accordion 展開/折疊功能
-});
-
 // Accordion 功能：點擊按鈕展開/折疊面板
 function setupAccordions() {
     var acc = document.getElementsByClassName("accordion-btn");
@@ -95,4 +90,22 @@ function setupAccordions() {
             }
         });
     }
+}
+
+// 複製內容
+function copyInputValue() {
+    var inputField = document.getElementById("input-field");
+    inputField.select();
+    document.execCommand("copy");
+
+    var copyMessage = document.getElementById("copy-message");
+    copyMessage.style.display = "block";
+
+    setTimeout(() => copyMessage.style.display = "none", 3000);
+}
+
+// 清除輸入框內容
+function clearInputValue() {
+    document.getElementById("input-field").value = "";
+    saveInputValue();
 }
